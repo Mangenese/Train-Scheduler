@@ -62,6 +62,7 @@ database.ref().on("child_added", function (snapshot) {
   var firstTrainTime= snapshot.val().trainTime;
   var tFrequency = snapshot.val().frequency;
 
+  //time conversion to find when the next train will be 
   var firstTimeConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
   console.log(firstTimeConverted);
   var currentTime = moment();
@@ -77,7 +78,7 @@ database.ref().on("child_added", function (snapshot) {
 
 
 
-
+//appending that new row in the html
  var newRow = $("<tr>").append(
  $("<td>").text(trainName),
  $("<td>").text(tDestination),
